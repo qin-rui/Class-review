@@ -1,0 +1,39 @@
+#include<iostream>
+using namespace std;
+class Rectangle
+{
+public:
+	Rectangle(double w=10,double h=10 );
+	void Expand(int n);
+	double GetArea();
+private:
+	double width,height;
+};
+Rectangle::Rectangle(double w,double h)
+{
+	width=w;
+	height=h;
+}
+void Rectangle::Expand(int n)
+{
+	width*=n;
+	height*=n;
+}
+double Rectangle::GetArea()
+{
+	return width*height;
+}
+int main()
+{
+	double width,height;
+	int n;
+	cin>>width>>height;
+	cin>>n;
+	Rectangle r1;
+	cout<<r1.GetArea()<<endl;
+	Rectangle r2(width,height);
+	cout<<r2.GetArea()<<endl;
+	r2.Expand(n);
+	cout<<r2.GetArea()<<endl;
+	return 0;
+}

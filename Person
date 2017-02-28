@@ -1,0 +1,55 @@
+//编写过程出现问题
+#include<iostream> 
+#include<cstring> //库函数错写成string
+using namespace std; 
+class Person 
+{ 
+public: 
+    Person(char *name,int idd=0); 
+    Person(const Person &r); 
+    void Display(); 
+    ~Person(); 
+private: 
+    int id; 
+    char *name; 
+}; 
+Person::Person(char *name1,int idd) 
+{ 
+    name=new char[strlen(name1)+1]; //此处应取得指针长度，不能直接负长度
+    strcpy(name,name1); 
+    id=idd; 
+} 
+Person::Person(const Person &r) 
+{ 
+    name=new char[strlen(r.name)+1]; 
+    id=r.id; 
+    strcpy(name,r.name); 
+} 
+Person::~Person() 
+{ 
+    delete []name; 
+} 
+void Person::Display() 
+{ 
+    cout<<name<<" "<<id; 
+} 
+int main() 
+{ 
+    char name[20]; 
+    int id; 
+    cin>>name>>id; 
+    Person P1(name,id); 
+    P1.Display(); 
+    cout<<endl; 
+    Person P2=P1; 
+    P2.Display (); 
+    return 0; 
+} 
+
+
+
+
+
+
+
+

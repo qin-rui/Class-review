@@ -1,0 +1,52 @@
+#include<iostream>
+using namespace std;
+class Point
+{
+public:
+	Point(double xx=0,double yy=0);
+	void Set(double xx,double yy);
+	void LeftMove(double dx);
+	void UpMove(double dy);
+	void Display();
+private:
+	double x;
+	double y;
+};
+Point::Point(double xx,double yy)
+{
+	Point::Set(xx,yy);
+}
+void Point::Set(double xx,double yy)
+{
+	x=xx;
+	y=yy;
+}
+void Point::LeftMove(double dx)
+{
+	x-=dx;
+}
+void Point::UpMove(double dy)
+{
+	y+=dy;
+}
+void Point::Display()
+{
+	cout<<"("<<x<<","<<y<<")"<<endl;
+}
+int main()
+{
+	double x1,y1,x2,y2,dx,dy;
+	cin>>x1>>y1>>dx>>dy>>x2>>y2;
+	Point p1;
+	p1.Display(); 
+	p1.Set(x1,y1);
+	p1.Display();
+	p1.LeftMove(dx);
+	p1.Display(); 
+	p1.UpMove(dy);
+	p1.Display() ;
+	Point p2(x2,y2);
+	p2.Display ();
+	return 0;
+}
+

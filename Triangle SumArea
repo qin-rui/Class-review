@@ -1,0 +1,38 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+class Triangle
+{
+public:
+	Triangle(double aa=0,double bb=0,double cc=0);
+	int IsTriangle();
+	double GetArea();
+private:
+	double a,b,c;
+};
+Triangle::Triangle(double aa,double bb,double cc)
+{
+	a=aa;
+	b=bb;
+	c=cc;
+}
+int Triangle::IsTriangle()
+{
+	if(a+b>c&&a+c>b&&b+c>a)return 1;
+	else return 0;
+}
+double Triangle::GetArea()
+{
+	double p=(a+b+c)/2;
+	return sqrt(p*(p-a)*(p-b)*(p-c));
+}
+int main()
+{
+	double a1,b1,c1,a2,b2,c2;
+	cin>>a1>>b1>>c1>>a2>>b2>>c2;
+	Triangle T1(a1,b1,c1);
+	Triangle T2(a2,b2,c2);
+	if(T1.IsTriangle()&&T2.IsTriangle () )cout<<T1.GetArea()+T2.GetArea ();
+	else cout<<"failure"<<endl;
+	return 0;
+}
